@@ -87,7 +87,7 @@ const App = () => {
           <input
             className="left"
             type="number"
-            placeholder="개봉 년도"
+            placeholder="개봉 년도!"
             onChange={(e) => setMovieYear(e.target.value)}
             value={movieYear}
           />

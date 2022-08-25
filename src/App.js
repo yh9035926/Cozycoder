@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import styled from "styled-components";
+import NavBar from "./components/NavBar";
 
 const App = () => {
   const [movieTitle, setMovieTitle] = useState("");
@@ -72,43 +74,55 @@ const App = () => {
     }
   };
   return (
-    <div>
+    <Router>
       <div>
-        <List>movie list!</List>
+        <NavBar />
+        <Route path="/" exact="true">
+          <h1>Home</h1>
+        </Route>
+        <Route path="/movies" exact="true">
+          <div>
+            <List>movie list!</List>
 
-        <form className="flex" onSubmit={addMovie}>
-          <input
-            type="text"
-            placeholder="영화 제목"
-            onChange={(e) => setMovieTitle(e.target.value)}
-            value={movieTitle}
-          />
+            <form className="flex" onSubmit={addMovie}>
+              <input
+                type="text"
+                placeholder="영화 제목"
+                onChange={(e) => setMovieTitle(e.target.value)}
+                value={movieTitle}
+              />
 
-          <input
-            className="left"
-            type="number"
-            placeholder="개봉 년도!"
-            onChange={(e) => setMovieYear(e.target.value)}
-            value={movieYear}
-          />
+              <input
+                className="left"
+                type="number"
+                placeholder="개봉 년도!"
+                onChange={(e) => setMovieYear(e.target.value)}
+                value={movieYear}
+              />
 
-          <button type="submit">추가하기</button>
-        </form>
-        <div className="flex font">
-          <div>{titleError}</div>
-          <div className="left padding">{yearError}</div>
-        </div>
-      </div>
-      <List2>second</List2>
-      {movies.map((m) => (
-        <div>
-          <div key={m.id}>
-            {m.title} :{m.year}
-            <button onClick={() => Delete(m.id)}>삭제하기</button>
+              <button type="submit">추가하기</button>
+            </form>
+            <div className="flex font">
+              <div>{titleError}</div>
+              <div className="left padding">{yearError}</div>
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+          <List2>second</List2>
+          {movies.map((m) => (
+            <div>
+              <div key={m.id}>
+                {m.title} :{m.year}
+                <button onClick={() => Delete(m.id)}>삭제하기</button>
+              </div>
+            </div>
+          ))}
+        </Route>
+
+        <Route path="/users" exact="true">
+          <h1>users</h1>
+        </Route>
+      </div>
+    </Router>
   );
 };
 

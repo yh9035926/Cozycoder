@@ -19,9 +19,6 @@ const NavBar = () => {
           Users
         </Link>
       </li>
-      <li class="nav-item">
-        <Link class="nav-link disabled">Disabled</Link>
-      </li>
     </ul>
   );
 };

@@ -78,7 +78,7 @@ const App = () => {
       <div>
         <NavBar />
         <Route path="/" exact="true">
-          <h1>Home</h1>
+          <h5>Home</h5>
         </Route>
         <Route path="/movies" exact="true">
           <div>
@@ -119,7 +119,7 @@ const App = () => {
         </Route>
 
         <Route path="/users" exact="true">
-          <h1>users</h1>
+          <h5>users</h5>
         </Route>
       </div>
     </Router>

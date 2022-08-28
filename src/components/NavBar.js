@@ -1,23 +1,23 @@
 /* eslint-disable*/
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 const NavBar = () => {
   return (
-    <ul class="nav nav-pills">
-      <li class="nav-item">
-        <Link class="nav-link active" aria-current="page" to="/">
+    <ul className="nav nav-pills">
+      <li className="nav-item">
+        <Link className="nav-link" to="/" activeClassName="active">
           Home
         </Link>
       </li>
-      <li class="nav-item">
-        <Link class="nav-link" to="/movies">
+      <li className="nav-item">
+        <NavLink className="nav-link" to="/movies" activeClassName="active">
           Movies
-        </Link>
+        </NavLink>
       </li>
-      <li class="nav-item">
-        <Link class="nav-link" to="/users">
+      <li className="nav-item">
+        <NavLink className="nav-link " to="/users" activeClassName="active">
           Users
-        </Link>
+        </NavLink>
       </li>
     </ul>
   );
